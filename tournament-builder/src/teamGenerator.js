@@ -29,3 +29,7 @@ class TeamGenerator {
 export default  TeamGenerator
 // Exemple d'utilisation
 
+let team = new TeamGenerator(["hey", "hey2", "hey3"],1);
+
+team.generateTeams();
+console.log(team.getTeams())
