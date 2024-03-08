@@ -1,3 +1,5 @@
+import TournamentGenerator from "./tournamentGenerator.js";
+
 class TeamGenerator {
   constructor(players, playersPerTeam = 3) {
     this.players = players;
@@ -29,7 +31,12 @@ class TeamGenerator {
 export default  TeamGenerator
 // Exemple d'utilisation
 
-let team = new TeamGenerator(["hey", "hey2", "hey3"],1);
+let team = new TeamGenerator(["hey", "hey2", "hey3","hey4"],1);
 
 team.generateTeams();
 console.log(team.getTeams())
+
+let getTeam = team.getTeams();
+
+let tournament = new TournamentGenerator(getTeam);
+tournament.generateTournament();
