@@ -1,7 +1,6 @@
 import TeamGenerator from "../src/teamGenerator.js";
 
 const chai = import('chai');
-const expect = chai.expect;
 
 describe('TeamGenerator', () => {
     it('nbGenerationTeam', async () => {
