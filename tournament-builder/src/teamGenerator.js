@@ -8,6 +8,9 @@ class TeamGenerator {
   }
 
   generateTeams() {
+    if (this.players.length%this.playersPerTeam !== 0){
+      this.nbTeamsExeption();
+    }
     let shuffledPlayers = [...this.players].sort(() => 0.5 - Math.random()); // Mélange aléatoire des joueurs
     let teamIndex = 0;
 
@@ -25,6 +28,11 @@ class TeamGenerator {
 
   getTeams() {
     return this.teams;
+  }
+
+  nbTeamsExeption() {
+    let left = this.players%this.playersPerTeam;
+    throw new Error("The number of players does not allow for fair teams, left " + left + " for a team of " + this.playersPerTeam);
   }
 }
 
