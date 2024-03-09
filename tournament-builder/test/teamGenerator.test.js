@@ -6,14 +6,10 @@ const chai = import('chai');
 describe('TeamGenerator', () => {
     it('nbGenerationTeamTypeBDD', async () => {
         let player = ["hey1","hey2", "hey3"];
-        let nbPerTeams = 3;
-        let result = 0;
+        let nbPerTeams = 1;
         let team = new TeamGenerator(player,nbPerTeams);
         team.generateTeams();
-        for(let i = 0; i<nbPerTeams;i++){
-            result++;
-        }
-        (await chai).expect(result).equal(3)
+        (await chai).expect(team.teams.length).equal(player.length/nbPerTeams)
     });
 
     it('NbPlayers%Nb/TeamsTDD', async () => {
