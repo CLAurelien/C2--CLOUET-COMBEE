@@ -16,8 +16,17 @@ describe('TeamGenerator', () => {
         (await chai).expect(result).equal(3)
     });
 
-    it('AVoirMaisEnTDD', () => {
-        
+    it('NbPlayers%Nb/TeamsTDD', async () => {
+        let player = ["hey1","hey2", "hey3","hey4"];
+        let nbPerTeams = 3;
+        for (let i = player.length+1;i<(i+3);i++){
+            player.push('hey'+i.toString());
+            let team = new TeamGenerator(player, nbPerTeams);
+            team.generateTeams();
+            if(player.length%nbPerTeams !== 0){
+                (await chai).expect(team.nbTeamsExeption())
+            }
+        }
     });
 });
 
@@ -35,10 +44,10 @@ describe('TournamentGenerator', () => {
 
     it('nbTeams>4TDD', async () => {
         let player = [];
-        let teams = 1;
-        for (;teams<4;teams++){
-            player.push('hey'+teams.toString());
-            let team = new TeamGenerator(player, teams);
+        let nbPerTeams = 1;
+        for (let i = 1;i<4;i++){
+            player.push('hey'+i.toString());
+            let team = new TeamGenerator(player, nbPerTeams);
             team.generateTeams();
             let getTeam = team.getTeams();
             let tournament = new TournamentGenerator(getTeam);
