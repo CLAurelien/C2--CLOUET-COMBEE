@@ -16,11 +16,8 @@ describe('TeamGenerator', () => {
         let player = ["hey1","hey2", "hey3","hey4"];
         let nbPerTeams = 3;
         let team = new TeamGenerator(player, nbPerTeams);
-
-        for (let i = player.length + 1; i < player.length + 4; i++) {
-            player.push('hey' + i.toString());
-            (await chai).expect(() => team.nbTeamsExeption()).to.throw(Error);
-        }
+        let teamGenerate = team.generateTeams();
+        (await chai).expect(() => teamGenerate).to.throw(Error);
     });
 });
 
