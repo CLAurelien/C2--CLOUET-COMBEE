@@ -16,8 +16,7 @@ describe('TeamGenerator', () => {
         let player = ["hey1","hey2", "hey3","hey4"];
         let nbPerTeams = 3;
         let team = new TeamGenerator(player, nbPerTeams);
-        let teamGenerate = team.generateTeams();
-        (await chai).expect(() => teamGenerate).to.throw(Error);
+        (await chai).expect(() => team.generateTeams()).to.throw(Error);
     });
 });
 
@@ -33,16 +32,13 @@ describe('TournamentGenerator', () => {
         (await chai).expect(tournament.poules).length(!0)
     });
 
-    it('poules>4TDD', async () => {
-        let player = [];
+    it('teams>4TDD', async () => {
+        let player = ["hey1","hey2","hey3"];
         let nbPerTeams = 1;
-        for (let i = 1;i<4;i++){
-            player.push('hey'+i.toString());
-            let team = new TeamGenerator(player, nbPerTeams);
-            team.generateTeams();
-            let getTeam = team.getTeams();
-            let tournament = new TournamentGenerator(getTeam);
-            tournament.generateTournament();
-            (await chai).expect(() => tournament.nbPoulesExeption()).to.throw(Error);        }
+        let team = new TeamGenerator(player, nbPerTeams);
+        team.generateTeams();
+        let getTeam = team.getTeams();
+        let tournament = new TournamentGenerator(getTeam);
+        (await chai).expect(() => tournament.generateTournament()).to.throw(Error);
     });
 });
