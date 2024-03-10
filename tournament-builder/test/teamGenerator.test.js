@@ -12,7 +12,7 @@ describe('TeamGenerator', () => {
         (await chai).expect(team.teams.length).equal(player.length/nbPerTeams)
     });
 
-    it('NbPlayers%Nb/TeamsTDD', async () => {
+    it('Equity/TeamsTDD', async () => {
         let player = ["hey1","hey2", "hey3","hey4"];
         let nbPerTeams = 3;
         let team = new TeamGenerator(player, nbPerTeams);
