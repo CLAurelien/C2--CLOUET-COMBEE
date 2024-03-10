@@ -46,7 +46,6 @@ describe('TournamentGenerator', () => {
             let getTeam = team.getTeams();
             let tournament = new TournamentGenerator(getTeam);
             tournament.generateTournament();
-            (await chai).expect(tournament.nbPoulesExeption())
-        }
+            (await chai).expect(() => tournament.nbPoulesExeption()).to.throw(Error);        }
     });
 });
