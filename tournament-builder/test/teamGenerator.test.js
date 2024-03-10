@@ -25,7 +25,7 @@ describe('TeamGenerator', () => {
 });
 
 describe('TournamentGenerator', () => {
-    it('pouleNotNullBDD', async () => {
+    it('pouleNotEmptyBDD', async () => {
         let player = ["hey1","hey2", "hey3","hey4"];
         let nbPerTeams = 1;
         let team = new TeamGenerator(player,nbPerTeams);
