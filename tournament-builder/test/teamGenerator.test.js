@@ -36,7 +36,7 @@ describe('TournamentGenerator', () => {
         (await chai).expect(tournament.poules).length(!0)
     });
 
-    it('nbTeams>4TDD', async () => {
+    it('poules>4TDD', async () => {
         let player = [];
         let nbPerTeams = 1;
         for (let i = 1;i<4;i++){
