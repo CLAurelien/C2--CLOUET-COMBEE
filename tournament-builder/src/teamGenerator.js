@@ -38,13 +38,3 @@ class TeamGenerator {
 
 export default  TeamGenerator
 // Exemple d'utilisation
-
-let team = new TeamGenerator(["hey", "hey2", "hey3","hey4"],2);
-
-team.generateTeams();
-console.log(team.getTeams())
-
-let getTeam = team.getTeams();
-
-let tournament = new TournamentGenerator(getTeam);
-tournament.generateTournament();
