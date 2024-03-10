@@ -15,13 +15,11 @@ describe('TeamGenerator', () => {
     it('NbPlayers%Nb/TeamsTDD', async () => {
         let player = ["hey1","hey2", "hey3","hey4"];
         let nbPerTeams = 3;
-        for (let i = player.length+1;i<(i+3);i++){
-            player.push('hey'+i.toString());
-            let team = new TeamGenerator(player, nbPerTeams);
-            team.generateTeams();
-            if(player.length%nbPerTeams !== 0){
-                (await chai).expect(team.nbTeamsExeption())
-            }
+        let team = new TeamGenerator(player, nbPerTeams);
+
+        for (let i = player.length + 1; i < player.length + 4; i++) {
+            player.push('hey' + i.toString());
+            (await chai).expect(() => team.nbTeamsExeption()).to.throw(TypeError);
         }
     });
 });
