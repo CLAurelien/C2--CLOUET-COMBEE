@@ -29,7 +29,7 @@ class TeamGenerator {
   }
 
   nbTeamsExeption() {
-    let error = new TypeError("The number of players does not allow for fair teams");
+    let error = Error("The number of players does not allow for fair teams");
     if (this.players.length%this.playersPerTeam !== 0){
       throw error;
     }
@@ -39,7 +39,7 @@ class TeamGenerator {
 export default  TeamGenerator
 // Exemple d'utilisation
 
-let team = new TeamGenerator(["hey", "hey2", "hey3","hey4"],3);
+let team = new TeamGenerator(["hey", "hey2", "hey3","hey4"],2);
 
 team.generateTeams();
 console.log(team.getTeams())
