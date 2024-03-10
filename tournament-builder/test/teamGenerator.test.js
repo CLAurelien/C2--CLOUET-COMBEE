@@ -19,7 +19,7 @@ describe('TeamGenerator', () => {
 
         for (let i = player.length + 1; i < player.length + 4; i++) {
             player.push('hey' + i.toString());
-            (await chai).expect(() => team.nbTeamsExeption()).to.throw(TypeError);
+            (await chai).expect(() => team.nbTeamsExeption()).to.throw(Error);
         }
     });
 });

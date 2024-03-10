@@ -41,11 +41,19 @@ class TournamentGenerator {
   }
 
   generateTournament() {
+      this.nbPoulesExeption();
       this.generatePoules();
       this.simulatePoulesMatches();
       this.generateFinalStages();
       return this.finalStages;
   }
+
+    nbPoulesExeption() {
+        let error = new Error("The number of teams is not enough to make a tournament");
+        if (this.teams.length < 4){
+            throw error;
+        }
+    }
 }
 
 export default TournamentGenerator;
